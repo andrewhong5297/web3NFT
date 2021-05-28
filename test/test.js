@@ -20,7 +20,7 @@ describe("MNFT Test v1", function () {
     })
 
   it("mint", async () => {
-     const mtx = await mnft.connect(user).redeemMNFT()
+     const mtx = await mnft.connect(user).redeemMNFT("false")
      mtx.wait(1);
 
      const owner = await mnft.ownerOf(ethers.BigNumber.from("1337"))
@@ -31,8 +31,9 @@ describe("MNFT Test v1", function () {
     const topic = -1;
     const dataHash = "0x"+(new BN(String(topic))).toTwos(256).toString('hex',64);
 
-    // console.log(mnft["functions"])
-    const mtx = await mnft.connect(user)['safeTransferFrom(address,address,uint256,bytes)'](user.getAddress(), admin.getAddress(), ethers.BigNumber.from("1337"),dataHash)
+    //approval functions must be called from **both** chains. There isn't a clean way of making an atomic approval, and it seems unneccessary. 
+
+    const mtx = await mnft.connect(user)['safeTransferFrom(address,address,uint256,bytes)'](user.getAddress(), admin.getAddress(), ethers.BigNumber.from("1337"), dataHash)
     mtx.wait(1);
 
     const owner = await mnft.ownerOf(ethers.BigNumber.from("1337"))
