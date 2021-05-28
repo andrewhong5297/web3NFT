@@ -5,7 +5,7 @@ require("hardhat-gas-reporter");
 
 const fs = require("fs");
 
-const defaultNetwork = "mainnet"; 
+const defaultNetwork = "localhost"; 
 
 function mnemonic() {
   try {
