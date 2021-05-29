@@ -3,6 +3,16 @@ const { ethers } = require("hardhat");
 const fs = require("fs"); 
 const BN = require('bn.js');
 
+function mnemonic() {
+  try {
+    return fs.readFileSync("./test/mnemonic.txt").toString().trim();
+  } catch (e) {
+    if (defaultNetwork !== "localhost") {
+    }
+  }
+  return "";
+}
+
 describe("MNFT Test v1", function () {
   let user, admin;
   let mnft;

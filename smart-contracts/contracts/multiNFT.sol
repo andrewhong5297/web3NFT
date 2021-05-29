@@ -75,6 +75,7 @@ contract multiNFT is ERC721 {
     ///bridge functions
     function crossMint(bool reciever) internal {
         //call bridge with calldata to mint.
+        bytes memory _calldata = abi.encodePacked("redeemNFT(true)");
         console.log("crossminted ", reciever);
     }
 

@@ -5,7 +5,25 @@
 // Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
 
+function mnemonic() {
+  try {
+    return fs.readFileSync("../test/mnemonic.txt").toString().trim();
+  } catch (e) {
+    if (defaultNetwork !== "localhost") {
+    }
+  }
+  return "";
+}
+
 async function main() {
+
+  provider = new ethers.providers.InfuraProvider("goerli", {
+    projectId: "faefe1dcd6094fb388019173d2328d8f",
+    projectSecret: "dffad28934914b97a5365fa0c2eb9de6"
+  });
+
+  shelter = ethers.Wallet.fromMnemonic(mnemonic()); //shelter mnem
+  shelter = await shelter.connect(provider);
   // Hardhat always runs the compile task when running scripts with its command
   // line interface.
   //
@@ -14,12 +32,12 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const ERC = await hre.ethers.getContractFactory("TestToken");
+  const erc = await ERC.deploy();
 
-  await greeter.deployed();
+  await erc.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
+  console.log("erc deployed to:", erc.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
