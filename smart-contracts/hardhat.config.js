@@ -5,7 +5,7 @@ require("hardhat-gas-reporter");
 
 const fs = require("fs");
 
-const defaultNetwork = "localhost"; 
+const defaultNetwork = "mumbai"; 
 
 function mnemonic() {
   try {
@@ -25,25 +25,43 @@ module.exports = {
       url: "http://localhost:8545",
     },
     rinkeby: {
-      url: "https://rinkeby.infura.io/v3/faefe1dcd6094fb388019173d2328d8f",
+      url: "https://rinkeby.infura.io/v3/60be357b5edc4233a1873fb661ad1682",
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     mainnet: {
-      url: "https://mainnet.infura.io/v3/faefe1dcd6094fb388019173d2328d8f",
+      url: "https://mainnet.infura.io/v3/60be357b5edc4233a1873fb661ad1682",
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     ropsten: {
-      url: "https://ropsten.infura.io/v3/faefe1dcd6094fb388019173d2328d8f",
+      url: "https://ropsten.infura.io/v3/60be357b5edc4233a1873fb661ad1682",
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     kovan: {
-      url: "https://kovan.infura.io/v3/faefe1dcd6094fb388019173d2328d8f",
+      url: "https://kovan.infura.io/v3/60be357b5edc4233a1873fb661ad1682",
+      accounts: {
+        mnemonic: mnemonic(),
+      },
+    },
+    goerli: {
+      url: "https://goerli.infura.io/v3/60be357b5edc4233a1873fb661ad1682",
+      accounts: {
+        mnemonic: mnemonic(),
+      },
+    },
+    mumbai: {
+      url: "https://polygon-mumbai.infura.io/v3/60be357b5edc4233a1873fb661ad1682",
+      accounts: {
+        mnemonic: mnemonic(),
+      },
+    },
+    polygon: {
+      url: "https://polygon-mainet.infura.io/v3/60be357b5edc4233a1873fb661ad1682",
       accounts: {
         mnemonic: mnemonic(),
       },

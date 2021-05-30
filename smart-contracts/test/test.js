@@ -4,13 +4,7 @@ const fs = require("fs");
 const BN = require('bn.js');
 
 function mnemonic() {
-  try {
-    return fs.readFileSync("./test/mnemonic.txt").toString().trim();
-  } catch (e) {
-    if (defaultNetwork !== "localhost") {
-    }
-  }
-  return "";
+  return fs.readFileSync("./test/mnemonic.txt").toString().trim();
 }
 
 describe("MNFT Test v1", function () {
